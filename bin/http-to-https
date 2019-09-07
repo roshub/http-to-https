@@ -21,7 +21,7 @@ const server = http.createServer( (req, res) => {
 let port = 8000
 
 if(fs.existsSync(portFilePath)){
-  port = parseInt( fs.readFileSync(portFilePath) )
+  port = parseInt( fs.readFileSync(portFilePath) ) || port
 }
 
 console.log('listening on port:', port)
