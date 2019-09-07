@@ -1,0 +1,7 @@
+#!/bin/sh
+
+PORT_NUM=$(snapctl get port)
+
+echo $PORT_NUM > $SNAP_COMMON/port
+
+snapctl restart http-to-https

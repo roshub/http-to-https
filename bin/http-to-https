@@ -1,0 +1,28 @@
+#!/usr/bin/env node
+
+const fs = require("fs")
+const http = require('http')
+const path = require('path')
+
+const BASE_PATH = process.env.SNAP_COMMON || 
+  ((process.env.HOME) ? (process.env.HOME + '/.http-to-https') : '.' )
+
+const portFilePath = path.join(BASE_PATH, '/port')
+
+
+const server = http.createServer( (req, res) => {
+  const newUrl = 'https://' + req.headers['host'] + req.url 
+  console.log('redirect client', req.socket.remoteAddress, 'to', newUrl)
+
+  res.writeHead(301, { 'Location': newUrl } )
+  res.end()
+})
+
+let port = 8000
+
+if(fs.existsSync(portFilePath)){
+  port = parseInt( fs.readFileSync(portFilePath) )
+}
+
+console.log('listening on port:', port)
+server.listen(port)

@@ -1,0 +1,21 @@
+name: http-to-https
+version: '1.0.0'
+summary: http-to-https redirect service
+description: http-to-https redirect service
+icon: icons/roshub_vector_logo-256x256.png
+base: "core18"
+confinement: strict
+grade: stable
+
+
+apps:
+  http-to-https:
+    command: ./bin/http-to-https
+    plugs: [network, network-bind, network-observe]
+    daemon: simple
+
+parts:
+  http-to-https:
+    source: "."
+    plugin: nodejs
+

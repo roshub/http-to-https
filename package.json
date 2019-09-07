@@ -1,0 +1,21 @@
+{
+  "name": "@roshub/http-to-https",
+  "private": false,
+  "version": "1.0.0",
+  "main": "./bin/http-to-https",
+  "license": "MIT",
+  "scripts": {
+    "build": "snapcraft clean; snapcraft"
+  },
+  "files": [
+    "bin"
+  ],
+  "bin": {
+    "http-to-https": "./bin/http-to-https"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/roshub/http-to-https.git"
+  },
+  "author": "RosHub Inc. <code@roshub.io>"
+}
