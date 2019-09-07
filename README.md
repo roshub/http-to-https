@@ -24,7 +24,7 @@ snap set http-to-https port=80
 
 
 ```
-snap get http-to-https
+snap get http-to-https port
 ```
 
 ## Logging
